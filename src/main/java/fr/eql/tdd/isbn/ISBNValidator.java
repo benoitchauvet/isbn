@@ -27,9 +27,6 @@ public class ISBNValidator {
 			
 		} else {
 
-			if (isbn.getValue().length() != 10) {
-				throw new NumberFormatException("Wrong ISBN : must be 10 digits");
-			}
 
 			for (int i = 0; i < 10; i++) {
 

@@ -1,6 +1,6 @@
 package fr.eql.tdd.isbn;
 
-public class ISBN {
+public abstract class ISBN {
 
 	private String value;
 	
