@@ -52,7 +52,7 @@ public class ValidateISBNTest {
 	@Test
 	public void lastDigitForISBN10CanBeCharX() {
 		ISBNValidator validator = new ISBNValidator();
-		ISBN isbn = new ISBN("237884431X");
+		ISBN isbn = new ISBN("304013344X");
 		boolean result = validator.checkISBN(isbn);
 		assertTrue(result);
 	}

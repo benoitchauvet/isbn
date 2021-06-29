@@ -12,7 +12,11 @@ public class ISBNValidator {
 		
 		
 		for (int i = 0 ; i < 10; i++) {
-			if (! Character.isDigit(isbn.getValue().charAt(i)))
+			
+			if (i == 9 && isbn.getValue().charAt(i) == 'X') {
+				// X as last digit is ok
+			} 
+			else if (! Character.isDigit(isbn.getValue().charAt(i)))
 			{
 				throw new NumberFormatException("Wrong ISBN : must contain only digits");
 			}
@@ -21,7 +25,12 @@ public class ISBNValidator {
 		int checksum = 0;
 		
 		for(int i=0; i < 10; i++) {
-			checksum += isbn.getValue().charAt(i) * (10 - i);
+			if (i == 9 && isbn.getValue().charAt(i) == 'X') {
+				checksum += 10;
+			}
+			else {
+				checksum += isbn.getValue().charAt(i) * (10 - i);
+			}
 		}
 		
 		return (checksum % 11 == 0) ? true : false;
