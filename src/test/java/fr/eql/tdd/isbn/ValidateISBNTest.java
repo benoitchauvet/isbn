@@ -10,7 +10,7 @@ public class ValidateISBNTest {
 
 	// STEP 1
 	@Test
-	public void checkValidISBN() {
+	public void checkValidISBN10() {
 		ISBNValidator validator = new ISBNValidator();
 		ISBN isbn = new ISBNFactory().createISBN("1654178160");
 		boolean result = validator.checkISBN(isbn);
@@ -19,7 +19,7 @@ public class ValidateISBNTest {
 
 	// STEP 2
 	@Test
-	public void checkInvalidISBN() {
+	public void checkInvalidISBN10() {
 		ISBNValidator validator = new ISBNValidator();
 		ISBN isbn = new ISBNFactory().createISBN("1654178167");
 		boolean result = validator.checkISBN(isbn);
@@ -39,7 +39,7 @@ public class ValidateISBNTest {
 	
 	// STEP 4
 	@Test
-	public void charactersInISBNAreNotAllowed()	{
+	public void charactersInISBN10AreNotAllowed()	{
 		ISBNValidator validator = new ISBNValidator();
 		ISBN isbn = new ISBNFactory().createISBN("abcdefghij");
 		
@@ -47,6 +47,7 @@ public class ValidateISBNTest {
 			validator.checkISBN(isbn);
 		});
 	}
+	
 	
 	// STEP 5
 	@Test
@@ -59,13 +60,33 @@ public class ValidateISBNTest {
 	
 	// STEP 6
 	@Test
-	public void checkValid13DigitsISBN()
+	public void checkValidISBN13()
 	{
 		ISBNValidator validator = new ISBNValidator();
 		ISBN isbn = new ISBNFactory().createISBN("9782374480060");
 		boolean result = validator.checkISBN(isbn);
 		assertTrue(result);
 	}
+	
+	@Test
+	public void checkInvalidISBN13()
+	{
+		ISBNValidator validator = new ISBNValidator();
+		ISBN isbn = new ISBNFactory().createISBN("9782374480061");
+		boolean result = validator.checkISBN(isbn);
+		assertFalse(result);
+	}
 		
+	@Test
+	public void charactersInISBN13AreNotAllowed()	{
+		ISBNValidator validator = new ISBNValidator();
+		ISBN isbn = new ISBNFactory().createISBN("abcdefghijklm");
+		
+		assertThrows(NumberFormatException.class, () -> {
+			validator.checkISBN(isbn);
+		});
+	}
+	
+	
 
 }
