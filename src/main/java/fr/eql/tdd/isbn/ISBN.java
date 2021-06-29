@@ -2,8 +2,14 @@ package fr.eql.tdd.isbn;
 
 public class ISBN {
 
-	public ISBN(String string) {
-		// TODO Auto-generated constructor stub
+	private String value;
+	
+	public ISBN(String value) {
+		this.value = value;
+	}
+
+	public String getValue() {
+		return value;
 	}
 
 }
