@@ -4,11 +4,13 @@ public class ISBNValidator {
 
 	public boolean checkISBN(ISBN isbn) {
 		
-		if(isbn.getValue().equals("1654178160"))
-		{
-			return true;
+		int checksum = 0;
+		
+		for(int i=0; i < 10; i++) {
+			checksum += isbn.getValue().charAt(i) * (10 - i);
 		}
-		return false;
+		
+		return (checksum % 11 == 0) ? true : false;
 	}
 
 	
