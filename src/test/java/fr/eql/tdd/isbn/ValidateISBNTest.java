@@ -47,5 +47,14 @@ public class ValidateISBNTest {
 			validator.checkISBN(isbn);
 		});
 	}
+	
+	// STEP 5
+	@Test
+	public void lastDigitForISBN10CanBeCharX() {
+		ISBNValidator validator = new ISBNValidator();
+		ISBN isbn = new ISBN("237884431X");
+		boolean result = validator.checkISBN(isbn);
+		assertTrue(result);
+	}
 
 }
