@@ -56,5 +56,17 @@ public class ValidateISBNTest {
 		boolean result = validator.checkISBN(isbn);
 		assertTrue(result);
 	}
+	
+	// STEP 6
+	@Test
+	public void checkValid13DigitsISBN()
+	{
+		ISBNValidator validator = new ISBNValidator();
+		ISBN isbn = new ISBN("9782374480060");
+		boolean result = validator.checkISBN(isbn);
+		assertTrue(result);
+	}
+	
+	
 
 }
