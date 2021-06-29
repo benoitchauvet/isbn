@@ -1,5 +1,7 @@
 package fr.eql.tdd.isbn;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 public class ValidateISBNTest {
@@ -8,7 +10,7 @@ public class ValidateISBNTest {
 	@Test
 	public void checkValidISBN()
 	{
-		ISBNValidator val = new ISBNValidator();
+		ISBNValidator validator = new ISBNValidator();
 		ISBN isbn = new ISBN("1654178160");
 		boolean result = validator.checkISBN(isbn);
 		assertTrue(result);
