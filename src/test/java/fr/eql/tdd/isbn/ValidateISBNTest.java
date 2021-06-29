@@ -36,5 +36,16 @@ public class ValidateISBNTest {
 			validator.checkISBN(isbn);
 		});
 	}
+	
+	// STEP 4
+	@Test
+	public void charactersInISBNAreNotAllowed()	{
+		ISBNValidator validator = new ISBNValidator();
+		ISBN isbn = new ISBN("abcdefghij");
+		
+		assertThrows(NumberFormatException.class, () -> {
+			validator.checkISBN(isbn);
+		});
+	}
 
 }
